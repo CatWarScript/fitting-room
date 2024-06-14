@@ -3,15 +3,18 @@
 function costume1(okC, okS, okD, coC, coS, coD) {
   // ДЛЯ ОБЫЧНЫХ КОСТЮМОВ
   if (okC !== "-") {
-    let cssCC = `div[style*="${okC}"] {background-image: url("${coC}") !important;}`;
+    let cssCC = `div[style*="${okC}"] {background-image: url("${coC}") !important;}
+`;
     $('#textForCSS1').append(cssCC);
   };
   if (okS !== "-") {
-    let cssCS = `div[style*="${okS}"] {background-image: url("${coS}") !important;}`;
+    let cssCS = `div[style*="${okS}"] {background-image: url("${coS}") !important;}
+`;
     $('#textForCSS1').append(cssCS);
   };
   if (okD !== "-") {
-    let cssCD = `div[style*="${okD}"] {background-image: url("${coD}") !important;}`;
+    let cssCD = `div[style*="${okD}"] {background-image: url("${coD}") !important;}
+`;
     $('#textForCSS1').append(cssCD);
   };
 
@@ -34,15 +37,18 @@ function costume1(okC, okS, okD, coC, coS, coD) {
 function costume2(okC, okS, okD, coC, coS, coD) {
   // ДЛЯ ОБЫЧНЫХ КОСТЮМОВ
   if (okC !== "-") {
-    let cssCC = `div[style*="${okC}"] {background-image: url("${coC}"), url("${okC}") !important;}`;
+    let cssCC = `div[style*="${okC}"] {background-image: url("${coC}"), url("${okC}") !important;}
+`;
     $('#textForCSS1').append(cssCC);
   };
   if (okS !== "-") {
-    let cssCS = `div[style*="${okS}"] {background-image: url("${coS}"), url("${okS}") !important;}`;
+    let cssCS = `div[style*="${okS}"] {background-image: url("${coS}"), url("${okS}") !important;}
+`;
     $('#textForCSS1').append(cssCS);
   };
   if (okD !== "-") {
-    let cssCD = `div[style*="${okD}"] {background-image: url("${coD}"), url("${okD}") !important;}`;
+    let cssCD = `div[style*="${okD}"] {background-image: url("${coD}"), url("${okD}") !important;}
+`;
     $('#textForCSS1').append(cssCD);
   };
 
