@@ -89,7 +89,8 @@ function processText() {
   }
 
   // Выводим правило с ватермаркой после всех других
-  let cssCW = `${window.watermarkSelectors.join(', ')} {
+  let cssCW = `${window.watermarkSelectors.join(', 
+')} {
 content: var(--svgFile) !important;
 position: absolute;
 bottom: -27px;
