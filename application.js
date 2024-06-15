@@ -2,18 +2,18 @@
 
 function costume1(okC, okS, okD, coC, coS, coD) {
   // ДЛЯ ОБЫЧНЫХ КОСТЮМОВ
-  let cssRules = [];
   if (okC !== "-") {
-    cssRules.push(`div[style*="${okC}"] {background-image: url("${coC}") !important;}`);
+    let cssCC = `div[style*="${okC}"] {background-image: url("${coC}"), url("${okC}") !important;}`;
+    $('#textForCSS1').append(cssCC + '\n'); // Добавляем перенос строки после правила
   };
   if (okS !== "-") {
-    cssRules.push(`div[style*="${okS}"] {background-image: url("${coS}") !important;}`);
+    let cssCS = `div[style*="${okS}"] {background-image: url("${coS}") !important;}`;
+    $('#textForCSS1').append(cssCS + '\n'); // Добавляем перенос строки после правила
   };
   if (okD !== "-") {
-    cssRules.push(`div[style*="${okD}"] {background-image: url("${coD}") !important;}`);
+    let cssCD = `div[style*="${okD}"] {background-image: url("${coD}") !important;}`;
+    $('#textForCSS1').append(cssCD + '\n'); // Добавляем перенос строки после правила
   };
-
-  $('#textForCSS1').append(cssRules.join('\n'));
 
   // ДЛЯ ВАТЕРМАРОК
   // Используем глобальную переменную для хранения селекторов
@@ -33,18 +33,18 @@ function costume1(okC, okS, okD, coC, coS, coD) {
 
 function costume2(okC, okS, okD, coC, coS, coD) {
   // ДЛЯ ОБЫЧНЫХ КОСТЮМОВ
-  let cssRules = [];
   if (okC !== "-") {
-    cssRules.push(`div[style*="${okC}"] {background-image: url("${coC}"), url("${okC}") !important;}`);
+    let cssCC = `div[style*="${okC}"] {background-image: url("${coC}"), url("${okC}") !important;}`;
+    $('#textForCSS1').append(cssCC + '\n'); // Добавляем перенос строки после правила
   };
   if (okS !== "-") {
-    cssRules.push(`div[style*="${okS}"] {background-image: url("${coS}"), url("${okS}") !important;}`);
+    let cssCS = `div[style*="${okS}"] {background-image: url("${coS}"), url("${okS}") !important;}`;
+    $('#textForCSS1').append(cssCS + '\n'); // Добавляем перенос строки после правила
   };
   if (okD !== "-") {
-    cssRules.push(`div[style*="${okD}"] {background-image: url("${coD}"), url("${okD}") !important;}`);
+    let cssCD = `div[style*="${okD}"] {background-image: url("${coD}"), url("${okD}") !important;}`;
+    $('#textForCSS1').append(cssCD + '\n'); // Добавляем перенос строки после правила
   };
-
-  $('#textForCSS1').append(cssRules.join('\n'));
 
   // ДЛЯ ВАТЕРМАРОК
   // Используем глобальную переменную для хранения селекторов
