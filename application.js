@@ -2,18 +2,18 @@
 
 function costume1(okC, okS, okD, coC, coS, coD) {
   // ДЛЯ ОБЫЧНЫХ КОСТЮМОВ
+  let cssRules = [];
   if (okC !== "-") {
-    let cssCC = `div[style*="${okC}"] {background-image: url("${coC}") !important;}`;
-    $('#textForCSS1').append(cssCC);
+    cssRules.push(`div[style*="${okC}"] {background-image: url("${coC}") !important;}`);
   };
   if (okS !== "-") {
-    let cssCS = `div[style*="${okS}"] {background-image: url("${coS}") !important;}`;
-    $('#textForCSS1').append(cssCS);
+    cssRules.push(`div[style*="${okS}"] {background-image: url("${coS}") !important;}`);
   };
   if (okD !== "-") {
-    let cssCD = `div[style*="${okD}"] {background-image: url("${coD}") !important;}`;
-    $('#textForCSS1').append(cssCD);
+    cssRules.push(`div[style*="${okD}"] {background-image: url("${coD}") !important;}`);
   };
+
+  $('#textForCSS1').append(cssRules.join('\n'));
 
   // ДЛЯ ВАТЕРМАРОК
   // Используем глобальную переменную для хранения селекторов
@@ -33,18 +33,18 @@ function costume1(okC, okS, okD, coC, coS, coD) {
 
 function costume2(okC, okS, okD, coC, coS, coD) {
   // ДЛЯ ОБЫЧНЫХ КОСТЮМОВ
+  let cssRules = [];
   if (okC !== "-") {
-    let cssCC = `div[style*="${okC}"] {background-image: url("${coC}"), url("${okC}") !important;}`;
-    $('#textForCSS1').append(cssCC);
+    cssRules.push(`div[style*="${okC}"] {background-image: url("${coC}"), url("${okC}") !important;}`);
   };
   if (okS !== "-") {
-    let cssCS = `div[style*="${okS}"] {background-image: url("${coS}"), url("${okS}") !important;}`;
-    $('#textForCSS1').append(cssCS);
+    cssRules.push(`div[style*="${okS}"] {background-image: url("${coS}"), url("${okS}") !important;}`);
   };
   if (okD !== "-") {
-    let cssCD = `div[style*="${okD}"] {background-image: url("${coD}"), url("${okD}") !important;}`;
-    $('#textForCSS1').append(cssCD);
+    cssRules.push(`div[style*="${okD}"] {background-image: url("${coD}"), url("${okD}") !important;}`);
   };
+
+  $('#textForCSS1').append(cssRules.join('\n'));
 
   // ДЛЯ ВАТЕРМАРОК
   // Используем глобальную переменную для хранения селекторов
@@ -89,12 +89,13 @@ function processText() {
   }
 
   // Выводим правило с ватермаркой после всех других
-  let cssCW = `${window.watermarkSelectors.join(', ')} {
-content: var(--svgFile) !important;
-position: absolute;
-bottom: -27px;
-left: -9px;
-transform: scale(44%); }`;
+  let cssCW = `${window.watermarkSelectors.join(',\n')}\n{
+    content: var(--svgFile) !important;
+    position: absolute;
+    bottom: -27px;
+    left: -9px;
+    transform: scale(44%);
+  }`;
   $('#textForCSS2').append(cssCW);
   // Сбрасываем массив селекторов для следующего вызова
   window.watermarkSelectors = [];
