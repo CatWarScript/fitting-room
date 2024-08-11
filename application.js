@@ -1,6 +1,6 @@
 function costume1(okC, okS, okD, coC, coS, coD, un, me, mer) {
   const targetDiv = getDiv(un);
-
+if (mer === false) {
   if (okC !== "-") {
     let cssCC = `div[style*="${okC}"] {background-image: url("${coC}") !important;}`;
     $(`${targetDiv} #${getTargetField(me, un)}`).append(cssCC); 
@@ -13,6 +13,7 @@ function costume1(okC, okS, okD, coC, coS, coD, un, me, mer) {
     let cssCD = `div[style*="${okD}"] {background-image: url("${coD}") !important;}`;
     $(`${targetDiv} #${getTargetField(me, un)}`).append(cssCD);
   };
+}
 
   if (mer) {
     let cssCode = '';
@@ -57,7 +58,7 @@ function costume1(okC, okS, okD, coC, coS, coD, un, me, mer) {
 function costume2(okC, okS, okD, coC, coS, coD, un, me, mer) {
   const targetDiv = getDiv(un);
   const targetField = getTargetField(me, un);
-
+if (mer === false) {
   if (okC !== "-") {
     let cssCC = `div[style*="${okC}"] {background-image: url("${coC}"), url("${okC}") !important;}`;
     $(`${targetDiv} #${targetField}`).append(cssCC);
@@ -70,6 +71,7 @@ function costume2(okC, okS, okD, coC, coS, coD, un, me, mer) {
     let cssCD = `div[style*="${okD}"] {background-image: url("${coD}"), url("${okD}") !important;}`;
     $(`${targetDiv} #${targetField}`).append(cssCD);
   };
+}
 
   if (mer) {
     let cssCode = '';
