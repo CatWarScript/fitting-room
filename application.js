@@ -26,7 +26,7 @@ function costume1(okC, okS, okD, coC, coS, coD, un, me, mer) {
     if (okD !== "-") {
       cssCode += `div[style*="${okD}"] {background-image: url("${coD}") !important;}\n`;
     }
-    $('#costumesMER').append(cssCode);
+    $('#costumesMER').append(cssCode); 
   } else { // Добавляем ватермарку, если mer=false
     if (!window.watermarkSelectors) {
       window.watermarkSelectors = [];
@@ -43,7 +43,7 @@ function costume1(okC, okS, okD, coC, coS, coD, un, me, mer) {
     }
 
     let cssCW = `${window.watermarkSelectors.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }`;
-    $(`${targetDiv} #${getTargetField(me, un)}`).append(cssCW); // Изменил me + 1 на me
+    $(`${targetDiv} #${getTargetField(2, un)}`).append(cssCW); //  getTargetField(2, un) для costumesWM 
     window.watermarkSelectors = [];
   }
 }
@@ -76,7 +76,7 @@ function costume2(okC, okS, okD, coC, coS, coD, un, me, mer) {
     if (okD !== "-") {
       cssCode += `div[style*="${okD}"] {background-image: url("${coD}"), url("${okD}") !important;}\n`;
     }
-    $('#costumesMER').append(cssCode);
+    $('#costumesMER').append(cssCode); 
   } else { // Добавляем ватермарку, если mer=false
     if (!window.watermarkSelectors) {
       window.watermarkSelectors = [];
@@ -93,7 +93,7 @@ function costume2(okC, okS, okD, coC, coS, coD, un, me, mer) {
     }
 
     let cssCW = `${window.watermarkSelectors.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }`;
-    $(`${targetDiv} #${getTargetField(me, un)}`).append(cssCW); 
+    $(`${targetDiv} #${getTargetField(2, un)}`).append(cssCW); //  getTargetField(2, un) для costumesWM 
     window.watermarkSelectors = [];
   }
 }
