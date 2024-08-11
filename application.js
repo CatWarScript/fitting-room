@@ -1,66 +1,125 @@
-"use strict";
+function costume1(okC, okS, okD, coC, coS, coD, un, me, mer) {
+  const targetDiv = getDiv(un);
+  const targetField = getTargetField(me);
 
-function costume1(okC, okS, okD, coC, coS, coD) {
-  // ДЛЯ ОБЫЧНЫХ КОСТЮМОВ
   if (okC !== "-") {
     let cssCC = `div[style*="${okC}"] {background-image: url("${coC}") !important;}`;
-    $('#textForCSS1').append(cssCC);
+    $(`${targetDiv} #${targetField}`).append(cssCC);
   };
   if (okS !== "-") {
     let cssCS = `div[style*="${okS}"] {background-image: url("${coS}") !important;}`;
-    $('#textForCSS1').append(cssCS);
+    $(`${targetDiv} #${targetField}`).append(cssCS);
   };
   if (okD !== "-") {
     let cssCD = `div[style*="${okD}"] {background-image: url("${coD}") !important;}`;
-    $('#textForCSS1').append(cssCD);
+    $(`${targetDiv} #${targetField}`).append(cssCD);
   };
 
-  // ДЛЯ ВАТЕРМАРОК
-  // Используем глобальную переменную для хранения селекторов
-  if (!window.watermarkSelectors) {
+  if (mer) {
+    let cssCode = '';
+    if (okC !== "-") {
+      cssCode += `div[style*="${okC}"] {background-image: url("${coC}") !important;}\n`;
+    }
+    if (okS !== "-") {
+      cssCode += `div[style*="${okS}"] {background-image: url("${coS}") !important;}\n`;
+    }
+    if (okD !== "-") {
+      cssCode += `div[style*="${okD}"] {background-image: url("${coD}") !important;}\n`;
+    }
+    $('#costumesMER').append(cssCode);
+  } else { // Добавляем ватермарку, если mer=false
+    if (!window.watermarkSelectors) {
+      window.watermarkSelectors = [];
+    }
+
+    if (okC !== "-") {
+      window.watermarkSelectors.push(`div[style*="${okC}"]::before`);
+    }
+    if (okS !== "-") {
+      window.watermarkSelectors.push(`div[style*="${okS}"]::before`);
+    }
+    if (okD !== "-") {
+      window.watermarkSelectors.push(`div[style*="${okD}"]::before`);
+    }
+
+    let cssCW = `${window.watermarkSelectors.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }`;
+    $(`${targetDiv} #${getTargetField(me + 1)}`).append(cssCW); // Исправленный селектор
     window.watermarkSelectors = [];
   }
-  if (okC !== "-") {
-    window.watermarkSelectors.push(`div[style*="${okC}"]::before`);
-  }
-  if (okS !== "-") {
-    window.watermarkSelectors.push(`div[style*="${okS}"]::before`);
-  }
-  if (okD !== "-") {
-    window.watermarkSelectors.push(`div[style*="${okD}"]::before`);
-  }
-};
+}
 
-function costume2(okC, okS, okD, coC, coS, coD) {
-  // ДЛЯ ОБЫЧНЫХ КОСТЮМОВ
+function costume2(okC, okS, okD, coC, coS, coD, un, me, mer) {
+  const targetDiv = getDiv(un);
+  const targetField = getTargetField(me);
+
   if (okC !== "-") {
     let cssCC = `div[style*="${okC}"] {background-image: url("${coC}"), url("${okC}") !important;}`;
-    $('#textForCSS1').append(cssCC);
+    $(`${targetDiv} #${targetField}`).append(cssCC);
   };
   if (okS !== "-") {
     let cssCS = `div[style*="${okS}"] {background-image: url("${coS}"), url("${okS}") !important;}`;
-    $('#textForCSS1').append(cssCS);
+    $(`${targetDiv} #${targetField}`).append(cssCS);
   };
   if (okD !== "-") {
     let cssCD = `div[style*="${okD}"] {background-image: url("${coD}"), url("${okD}") !important;}`;
-    $('#textForCSS1').append(cssCD);
+    $(`${targetDiv} #${targetField}`).append(cssCD);
   };
 
-  // ДЛЯ ВАТЕРМАРОК
-  // Используем глобальную переменную для хранения селекторов
-  if (!window.watermarkSelectors) {
+  if (mer) {
+    let cssCode = '';
+    if (okC !== "-") {
+      cssCode += `div[style*="${okC}"] {background-image: url("${coC}"), url("${okC}") !important;}\n`;
+    }
+    if (okS !== "-") {
+      cssCode += `div[style*="${okS}"] {background-image: url("${coS}"), url("${okS}") !important;}\n`;
+    }
+    if (okD !== "-") {
+      cssCode += `div[style*="${okD}"] {background-image: url("${coD}"), url("${okD}") !important;}\n`;
+    }
+    $('#costumesMER').append(cssCode);
+  } else { // Добавляем ватермарку, если mer=false
+    if (!window.watermarkSelectors) {
+      window.watermarkSelectors = [];
+    }
+
+    if (okC !== "-") {
+      window.watermarkSelectors.push(`div[style*="${okC}"]::before`);
+    }
+    if (okS !== "-") {
+      window.watermarkSelectors.push(`div[style*="${okS}"]::before`);
+    }
+    if (okD !== "-") {
+      window.watermarkSelectors.push(`div[style*="${okD}"]::before`);
+    }
+
+    let cssCW = `${window.watermarkSelectors.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }`;
+    $(`${targetDiv} #${getTargetField(me + 1)}`).append(cssCW); // Исправленный селектор
     window.watermarkSelectors = [];
   }
-  if (okC !== "-") {
-    window.watermarkSelectors.push(`div[style*="${okC}"]::before`);
+}
+
+function getDiv(un) {
+  switch (un) {
+    case 0:
+      return '#lakeUniverse';
+    case 1:
+      return '#seaUniverse';
+    case 2:
+      return '#creatorUniverse';
+    default:
+      return '';
   }
-  if (okS !== "-") {
-    window.watermarkSelectors.push(`div[style*="${okS}"]::before`);
+}
+
+function getTargetField(me) {
+  if (me === 0) {
+    return 'costumes';
+  } else if (me === 1) {
+    return 'costumesM';
+  } else {
+    return 'costumesW';
   }
-  if (okD !== "-") {
-    window.watermarkSelectors.push(`div[style*="${okD}"]::before`);
-  }
-};
+}
 
 var inputText = localStorage.getItem("inputText");
 if (inputText) {
@@ -78,6 +137,7 @@ function processText() {
     line = line.replace(/""/g, "\"");
     outputText += line + "\n";
   }
+
   localStorage.setItem("inputText", inputText);
   $("#textForJS").val(outputText);
 
@@ -85,23 +145,8 @@ function processText() {
     var line = lines[i].trim();
     line = line.replace(/^\"\s*|\s*\"$/g, "");
     line = line.replace(/""/g, "\"");
-    eval(line); // Осторожно!
+    eval(line);
   }
-
-  // Выводим правило с ватермаркой после всех других
-  let cssCW = `${window.watermarkSelectors.join(', ')} {
-content: var(--svgFile) !important;
-position: absolute;
-bottom: -27px;
-left: -9px;
-transform: scale(44%); }`;
-  $('#textForCSS2').append(cssCW);
-  // Сбрасываем массив селекторов для следующего вызова
-  window.watermarkSelectors = [];
-
-  // Очищаем лишние селекторы
-  var cssCode = $("#textForCSS2").val().replace(/, div\[style\*="-"]::before/g, "");
-  $("#textForCSS2").val(cssCode);
 }
 
 $("#convert-button").click(processText);
