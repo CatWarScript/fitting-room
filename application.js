@@ -1,18 +1,17 @@
 function costume1(okC, okS, okD, coC, coS, coD, un, me, mer) {
   const targetDiv = getDiv(un);
-  const targetField = getTargetField(me, un);
 
   if (okC !== "-") {
     let cssCC = `div[style*="${okC}"] {background-image: url("${coC}") !important;}`;
-    $(`${targetDiv} #${targetField}`).append(cssCC);
+    $(`${targetDiv} #${getTargetField(me, un)}`).append(cssCC);
   };
   if (okS !== "-") {
     let cssCS = `div[style*="${okS}"] {background-image: url("${coS}") !important;}`;
-    $(`${targetDiv} #${targetField}`).append(cssCS);
+    $(`${targetDiv} #${getTargetField(me, un)}`).append(cssCS);
   };
   if (okD !== "-") {
     let cssCD = `div[style*="${okD}"] {background-image: url("${coD}") !important;}`;
-    $(`${targetDiv} #${targetField}`).append(cssCD);
+    $(`${targetDiv} #${getTargetField(me, un)}`).append(cssCD);
   };
 
   if (mer) {
@@ -48,7 +47,7 @@ function costume1(okC, okS, okD, coC, coS, coD, un, me, mer) {
     if (me === 0) { 
       $(`${targetDiv} #${getTargetField(0, un)}`).append(cssCW); //  getTargetField(0, un) для costumesW
     } else if (me === 1) {
-      $(`${targetDiv} #${getTargetField(2, un)}`).append(cssCW); //  getTargetField(2, un) для costumesWM
+      $(`${targetDiv} #${getTargetField(1, un)}`).append(cssCW); //  getTargetField(1, un) для costumesWM
     }
     
     window.watermarkSelectors = [];
@@ -105,7 +104,7 @@ function costume2(okC, okS, okD, coC, coS, coD, un, me, mer) {
     if (me === 0) { 
       $(`${targetDiv} #${getTargetField(0, un)}`).append(cssCW); //  getTargetField(0, un) для costumesW
     } else if (me === 1) {
-      $(`${targetDiv} #${getTargetField(2, un)}`).append(cssCW); //  getTargetField(2, un) для costumesWM
+      $(`${targetDiv} #${getTargetField(1, un)}`).append(cssCW); //  getTargetField(1, un) для costumesWM
     }
     
     window.watermarkSelectors = [];
