@@ -43,19 +43,13 @@ function costume1(okC, okS, okD, coC, coS, coD, un, me, mer) {
 
     let cssCW = `${window.watermarkSelectors.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }`;
     
-    // Создаем элемент style
-    let styleElement = document.createElement('style');
-
-    // Добавляем CSS ватермарки в элемент style
-    styleElement.appendChild(document.createTextNode(cssCW));
-
-    // Добавляем элемент style в нужное поле
+    // Добавляем ватермарку в нужное поле
     if (me === 0) { 
-      $(`${targetDiv} #${getTargetField(2, un)}`).append(styleElement); //  getTargetField(2, un) для costumesWM
+      $(`${targetDiv} #${getTargetFieldW(0, un)}`).append(cssCW); //  getTargetField(0, un) для costumesW
     } else if (me === 1) {
-      $(`${targetDiv} #${getTargetField(2, un)}`).append(styleElement); //  getTargetField(2, un) для costumesWM
+      $(`${targetDiv} #${getTargetFieldW(1, un)}`).append(cssCW); //  getTargetField(1, un) для costumesWM
     }
-
+    
     window.watermarkSelectors = [];
   }
 }
@@ -105,20 +99,12 @@ function costume2(okC, okS, okD, coC, coS, coD, un, me, mer) {
     }
 
     let cssCW = `${window.watermarkSelectors.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }`;
-    
-    // Создаем элемент style
-    let styleElement = document.createElement('style');
-
-    // Добавляем CSS ватермарки в элемент style
-    styleElement.appendChild(document.createTextNode(cssCW));
-
-    // Добавляем элемент style в нужное поле
     if (me === 0) { 
-      $(`${targetDiv} #${getTargetField(2, un)}`).append(styleElement); //  getTargetField(2, un) для costumesWM
+      $(`${targetDiv} #${getTargetFieldW(0, un)}`).append(cssCW);
     } else if (me === 1) {
-      $(`${targetDiv} #${getTargetField(2, un)}`).append(styleElement); //  getTargetField(2, un) для costumesWM
+      $(`${targetDiv} #${getTargetFieldW(1, un)}`).append(cssCW); //  getTargetField(1, un) для costumesWM
     }
-
+    
     window.watermarkSelectors = [];
   }
 }
@@ -141,7 +127,12 @@ function getTargetField(me, un) {
     return `costumes-${getDivName(un)}`; 
   } else if (me === 1) {
     return `costumesM-${getDivName(un)}`; 
-  } else if (me === 2) {
+  }
+}
+function getTargetFieldW(me, un) {
+  if (me === 0) {
+    return `costumesW-${getDivName(un)}`; 
+  } else if (me === 1) {
     return `costumesWM-${getDivName(un)}`; 
   }
 }
