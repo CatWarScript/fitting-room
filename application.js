@@ -1,6 +1,6 @@
 function costume1(okC, okS, okD, coC, coS, coD, un, me, mer) {
   const targetDiv = getDiv(un);
-  const targetField = getTargetField(me);
+  const targetField = getTargetField(me, un);
 
   if (okC !== "-") {
     let cssCC = `div[style*="${okC}"] {background-image: url("${coC}") !important;}`;
@@ -43,14 +43,14 @@ function costume1(okC, okS, okD, coC, coS, coD, un, me, mer) {
     }
 
     let cssCW = `${window.watermarkSelectors.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }`;
-    $(`${targetDiv} #${getTargetField(me + 1)}`).append(cssCW); // Исправленный селектор
+    $(`${targetDiv} #${getTargetField(me + 1, un)}`).append(cssCW); 
     window.watermarkSelectors = [];
   }
 }
 
 function costume2(okC, okS, okD, coC, coS, coD, un, me, mer) {
   const targetDiv = getDiv(un);
-  const targetField = getTargetField(me);
+  const targetField = getTargetField(me, un);
 
   if (okC !== "-") {
     let cssCC = `div[style*="${okC}"] {background-image: url("${coC}"), url("${okC}") !important;}`;
@@ -93,7 +93,7 @@ function costume2(okC, okS, okD, coC, coS, coD, un, me, mer) {
     }
 
     let cssCW = `${window.watermarkSelectors.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }`;
-    $(`${targetDiv} #${getTargetField(me + 1)}`).append(cssCW); // Исправленный селектор
+    $(`${targetDiv} #${getTargetField(me + 1, un)}`).append(cssCW); 
     window.watermarkSelectors = [];
   }
 }
@@ -111,13 +111,26 @@ function getDiv(un) {
   }
 }
 
-function getTargetField(me) {
+function getTargetField(me, un) { 
   if (me === 0) {
-    return 'costumes';
+    return `costumes-${getDivName(un)}`;
   } else if (me === 1) {
-    return 'costumesM';
+    return `costumesM-${getDivName(un)}`;
   } else {
-    return 'costumesW';
+    return `costumesW-${getDivName(un)}`;
+  }
+}
+
+function getDivName(un) {
+  switch (un) {
+    case 0:
+      return 'lake';
+    case 1:
+      return 'sea';
+    case 2:
+      return 'creator';
+    default:
+      return '';
   }
 }
 
