@@ -111,13 +111,13 @@ function getDiv(un) {
   }
 }
 
-function getTargetField(me, un) { 
+function getTargetField(me, un) {
   if (me === 0) {
-    return `costumes-${getDivName(un)}`;
+    return `costumes-${getDivName(un)}`; 
   } else if (me === 1) {
-    return `costumesM-${getDivName(un)}`;
+    return `costumesM-${getDivName(un)}`; 
   } else {
-    return `costumesW-${getDivName(un)}`;
+    return `costumesWM-${getDivName(un)}`; // Исправлено:  costumesWM, а не costumesW
   }
 }
 
