@@ -164,4 +164,11 @@ function processText() {
     eval(line);
   }
 }
-$("#convert-button").click(processText);
+$("#convert-button").click(function() {
+  let originalColor = $('body').css('background-color');
+  $('body').css('background-color', 'red');
+  setTimeout(function() {
+    $('body').animate({ 'background-color': originalColor }, 1000); 
+  }, 1000);
+  processText(); 
+}); 
