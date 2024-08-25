@@ -14,7 +14,6 @@ if (mer === false) {
     $(`${targetDiv} #${getTargetField(me, un)}`).append(cssCD);
   };
 }
-
   if (mer) {
     let cssCode = '';
     if (okC !== "-") {
@@ -27,39 +26,31 @@ if (mer === false) {
       cssCode += `div[style*="${okD}"] {background-image: url("${coD}") !important;}\n`;
     }
     $('#costumesMER').append(cssCode); 
-  } else {
-    if (!window.watermarkSelectors0) { window.watermarkSelectors0 = []; }
-    if (!window.watermarkSelectors1) { window.watermarkSelectors1 = []; }
-    if (!window.watermarkSelectors2) { window.watermarkSelectors2 = []; }
-
+  } else { // Добавляем ватермарку, если mer=false
+    if (!window.watermarkSelectors) {
+      window.watermarkSelectors = [];
+    }
     if (okC !== "-") {
-      window[`watermarkSelectors${me}`].push(`div[style*="${okC}"]::before`);
+      window.watermarkSelectors.push(`div[style*="${okC}"]::before`);
     }
     if (okS !== "-") {
-      window[`watermarkSelectors${me}`].push(`div[style*="${okS}"]::before`);
+      window.watermarkSelectors.push(`div[style*="${okS}"]::before`);
     }
     if (okD !== "-") {
-      window[`watermarkSelectors${me}`].push(`div[style*="${okD}"]::before`);
+      window.watermarkSelectors.push(`div[style*="${okD}"]::before`);
     }
-
-    let cssCW0 = window.watermarkSelectors0 ? `${window.watermarkSelectors0.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }` : '';
-    let cssCW1 = window.watermarkSelectors1 ? `${window.watermarkSelectors1.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }` : '';
-    let cssCW2 = window.watermarkSelectors2 ? `${window.watermarkSelectors2.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }` : '';
-
-    if (me === 0) {
-      $(${targetDiv} #${getTargetFieldW(0, un)}).append(cssCW0);
+    let cssCW = `${window.watermarkSelectors.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }`;
+    
+    // Добавляем ватермарку в нужное поле
+    if (me === 0) { 
+      $(`${targetDiv} #${getTargetFieldW(0, un)}`).append(cssCW); //  getTargetField(0, un) для costumesW
     } else if (me === 1) {
-      $(${targetDiv} #${getTargetFieldW(1, un)}).append(cssCW1); 
-    } else if (me === 2) {
-      $(${targetDiv} #${getTargetFieldW(2, un)}).append(cssCW2);
+      $(`${targetDiv} #${getTargetFieldW(1, un)}`).append(cssCW); //  getTargetField(1, un) для costumesWM
     }
-
-    window.watermarkSelectors0 = [];
-    window.watermarkSelectors1 = [];
-    window.watermarkSelectors2 = [];
+    
+    window.watermarkSelectors = [];
   }
 }
-
 function costume2(okC, okS, okD, coC, coS, coD, un, me, mer) {
   const targetDiv = getDiv(un);
   const targetField = getTargetField(me, un);
@@ -77,7 +68,6 @@ if (mer === false) {
     $(`${targetDiv} #${targetField}`).append(cssCD);
   };
 }
-
   if (mer) {
     let cssCode = '';
     if (okC !== "-") {
@@ -90,39 +80,29 @@ if (mer === false) {
       cssCode += `div[style*="${okD}"] {background-image: url("${coD}"), url("${okD}") !important;}\n`;
     }
     $('#costumesMER').append(cssCode); 
-  } else {
-    if (!window.watermarkSelectors0) { window.watermarkSelectors0 = []; }
-    if (!window.watermarkSelectors1) { window.watermarkSelectors1 = []; }
-    if (!window.watermarkSelectors2) { window.watermarkSelectors2 = []; }
-
+  } else { // Добавляем ватермарку, если mer=false
+    if (!window.watermarkSelectors) {
+      window.watermarkSelectors = [];
+    }
     if (okC !== "-") {
-      window[`watermarkSelectors${me}`].push(`div[style*="${okC}"]::before`);
+      window.watermarkSelectors.push(`div[style*="${okC}"]::before`);
     }
     if (okS !== "-") {
-      window[`watermarkSelectors${me}`].push(`div[style*="${okS}"]::before`);
+      window.watermarkSelectors.push(`div[style*="${okS}"]::before`);
     }
     if (okD !== "-") {
-      window[`watermarkSelectors${me}`].push(`div[style*="${okD}"]::before`);
+      window.watermarkSelectors.push(`div[style*="${okD}"]::before`);
     }
-
-    let cssCW0 = window.watermarkSelectors0 ? `${window.watermarkSelectors0.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }` : '';
-    let cssCW1 = window.watermarkSelectors1 ? `${window.watermarkSelectors1.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }` : '';
-    let cssCW2 = window.watermarkSelectors2 ? `${window.watermarkSelectors2.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }` : '';
-
-    if (me === 0) {
-      $(${targetDiv} #${getTargetFieldW(0, un)}).append(cssCW0);
+    let cssCW = `${window.watermarkSelectors.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }`;
+    if (me === 0) { 
+      $(`${targetDiv} #${getTargetFieldW(0, un)}`).append(cssCW);
     } else if (me === 1) {
-      $(${targetDiv} #${getTargetFieldW(1, un)}).append(cssCW1); 
-    } else if (me === 2) {
-      $(${targetDiv} #${getTargetFieldW(2, un)}).append(cssCW2);
+      $(`${targetDiv} #${getTargetFieldW(1, un)}`).append(cssCW); //  getTargetField(1, un) для costumesWM
     }
-
-    window.watermarkSelectors0 = [];
-    window.watermarkSelectors1 = [];
-    window.watermarkSelectors2 = [];
+    
+    window.watermarkSelectors = [];
   }
 }
-
 function getDiv(un) {
   switch (un) {
     case 0:
@@ -135,7 +115,6 @@ function getDiv(un) {
       return '';
   }
 }
-
 function getTargetField(me, un) {
   if (me === 0) {
     return `costumes-${getDivName(un)}`; 
@@ -150,7 +129,6 @@ function getTargetFieldW(me, un) {
     return `costumesWM-${getDivName(un)}`; 
   }
 }
-
 function getDivName(un) {
   switch (un) {
     case 0:
@@ -163,27 +141,22 @@ function getDivName(un) {
       return '';
   }
 }
-
 var inputText = localStorage.getItem("inputText");
 if (inputText) {
   $("#textFromForm").val(inputText);
 }
-
 function processText() {
   var inputText = $("#textFromForm").val();
   var outputText = "";
   var lines = inputText.split("\n");
-
   for (var i = 0; i < lines.length; i++) {
     var line = lines[i].trim();
     line = line.replace(/^\"\s*|\s*\"$/g, "");
     line = line.replace(/""/g, "\"");
     outputText += line + "\n";
   }
-
   localStorage.setItem("inputText", inputText);
   $("#textForJS").val(outputText);
-
   for (var i = 0; i < lines.length; i++) {
     var line = lines[i].trim();
     line = line.replace(/^\"\s*|\s*\"$/g, "");
@@ -191,5 +164,4 @@ function processText() {
     eval(line);
   }
 }
-
 $("#convert-button").click(processText);
