@@ -27,31 +27,36 @@ if (mer === false) {
       cssCode += `div[style*="${okD}"] {background-image: url("${coD}") !important;}\n`;
     }
     $('#costumesMER').append(cssCode); 
-  } else { // Добавляем ватермарку, если mer=false
-    if (!window.watermarkSelectors) {
-      window.watermarkSelectors = [];
-    }
+  } else {
+    if (!window.watermarkSelectors0) { window.watermarkSelectors0 = []; }
+    if (!window.watermarkSelectors1) { window.watermarkSelectors1 = []; }
+    if (!window.watermarkSelectors2) { window.watermarkSelectors2 = []; }
 
     if (okC !== "-") {
-      window.watermarkSelectors.push(`div[style*="${okC}"]::before`);
+      window[`watermarkSelectors${me}`].push(`div[style*="${okC}"]::before`);
     }
     if (okS !== "-") {
-      window.watermarkSelectors.push(`div[style*="${okS}"]::before`);
+      window[`watermarkSelectors${me}`].push(`div[style*="${okS}"]::before`);
     }
     if (okD !== "-") {
-      window.watermarkSelectors.push(`div[style*="${okD}"]::before`);
+      window[`watermarkSelectors${me}`].push(`div[style*="${okD}"]::before`);
     }
 
-    let cssCW = `${window.watermarkSelectors.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }`;
-    
-    // Добавляем ватермарку в нужное поле
-    if (me === 0) { 
-      $(`${targetDiv} #${getTargetFieldW(0, un)}`).append(cssCW); //  getTargetField(0, un) для costumesW
+    let cssCW0 = window.watermarkSelectors0 ? `${window.watermarkSelectors0.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }` : '';
+    let cssCW1 = window.watermarkSelectors1 ? `${window.watermarkSelectors1.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }` : '';
+    let cssCW2 = window.watermarkSelectors2 ? `${window.watermarkSelectors2.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }` : '';
+
+    if (me === 0) {
+      $(${targetDiv} #${getTargetFieldW(0, un)}).append(cssCW0);
     } else if (me === 1) {
-      $(`${targetDiv} #${getTargetFieldW(1, un)}`).append(cssCW); //  getTargetField(1, un) для costumesWM
+      $(${targetDiv} #${getTargetFieldW(1, un)}).append(cssCW1); 
+    } else if (me === 2) {
+      $(${targetDiv} #${getTargetFieldW(2, un)}).append(cssCW2);
     }
-    
-    window.watermarkSelectors = [];
+
+    window.watermarkSelectors0 = [];
+    window.watermarkSelectors1 = [];
+    window.watermarkSelectors2 = [];
   }
 }
 
@@ -85,29 +90,36 @@ if (mer === false) {
       cssCode += `div[style*="${okD}"] {background-image: url("${coD}"), url("${okD}") !important;}\n`;
     }
     $('#costumesMER').append(cssCode); 
-  } else { // Добавляем ватермарку, если mer=false
-    if (!window.watermarkSelectors) {
-      window.watermarkSelectors = [];
-    }
+  } else {
+    if (!window.watermarkSelectors0) { window.watermarkSelectors0 = []; }
+    if (!window.watermarkSelectors1) { window.watermarkSelectors1 = []; }
+    if (!window.watermarkSelectors2) { window.watermarkSelectors2 = []; }
 
     if (okC !== "-") {
-      window.watermarkSelectors.push(`div[style*="${okC}"]::before`);
+      window[`watermarkSelectors${me}`].push(`div[style*="${okC}"]::before`);
     }
     if (okS !== "-") {
-      window.watermarkSelectors.push(`div[style*="${okS}"]::before`);
+      window[`watermarkSelectors${me}`].push(`div[style*="${okS}"]::before`);
     }
     if (okD !== "-") {
-      window.watermarkSelectors.push(`div[style*="${okD}"]::before`);
+      window[`watermarkSelectors${me}`].push(`div[style*="${okD}"]::before`);
     }
 
-    let cssCW = `${window.watermarkSelectors.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }`;
-    if (me === 0) { 
-      $(`${targetDiv} #${getTargetFieldW(0, un)}`).append(cssCW);
+    let cssCW0 = window.watermarkSelectors0 ? `${window.watermarkSelectors0.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }` : '';
+    let cssCW1 = window.watermarkSelectors1 ? `${window.watermarkSelectors1.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }` : '';
+    let cssCW2 = window.watermarkSelectors2 ? `${window.watermarkSelectors2.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }` : '';
+
+    if (me === 0) {
+      $(${targetDiv} #${getTargetFieldW(0, un)}).append(cssCW0);
     } else if (me === 1) {
-      $(`${targetDiv} #${getTargetFieldW(1, un)}`).append(cssCW); //  getTargetField(1, un) для costumesWM
+      $(${targetDiv} #${getTargetFieldW(1, un)}).append(cssCW1); 
+    } else if (me === 2) {
+      $(${targetDiv} #${getTargetFieldW(2, un)}).append(cssCW2);
     }
-    
-    window.watermarkSelectors = [];
+
+    window.watermarkSelectors0 = [];
+    window.watermarkSelectors1 = [];
+    window.watermarkSelectors2 = [];
   }
 }
 
