@@ -2,18 +2,19 @@ function costume1(okC, okS, okD, coC, coS, coD, un, me, mer) {
   const targetDiv = getDiv(un);
 if (mer === false) {
   if (okC !== "-") {
-    let cssCC = `div[style*="${okC}"] {background-image: url("${coC}") !important;}\n`;
+    let cssCC = `div[style*="${okC}"] {background-image: url("${coC}") !important;}`;
     $(`${targetDiv} #${getTargetField(me, un)}`).append(cssCC); 
   };
   if (okS !== "-") {
-    let cssCS = `div[style*="${okS}"] {background-image: url("${coS}") !important;}\n`;
+    let cssCS = `div[style*="${okS}"] {background-image: url("${coS}") !important;}`;
     $(`${targetDiv} #${getTargetField(me, un)}`).append(cssCS);
   };
   if (okD !== "-") {
-    let cssCD = `div[style*="${okD}"] {background-image: url("${coD}") !important;}\n`;
+    let cssCD = `div[style*="${okD}"] {background-image: url("${coD}") !important;}`;
     $(`${targetDiv} #${getTargetField(me, un)}`).append(cssCD);
   };
 }
+
   if (mer) {
     let cssCode = '';
     if (okC !== "-") {
@@ -30,6 +31,7 @@ if (mer === false) {
     if (!window.watermarkSelectors) {
       window.watermarkSelectors = [];
     }
+
     if (okC !== "-") {
       window.watermarkSelectors.push(`div[style*="${okC}"]::before`);
     }
@@ -39,6 +41,7 @@ if (mer === false) {
     if (okD !== "-") {
       window.watermarkSelectors.push(`div[style*="${okD}"]::before`);
     }
+
     let cssCW = `${window.watermarkSelectors.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }`;
     
     // Добавляем ватермарку в нужное поле
@@ -51,23 +54,25 @@ if (mer === false) {
     window.watermarkSelectors = [];
   }
 }
+
 function costume2(okC, okS, okD, coC, coS, coD, un, me, mer) {
   const targetDiv = getDiv(un);
   const targetField = getTargetField(me, un);
 if (mer === false) {
   if (okC !== "-") {
-    let cssCC = `div[style*="${okC}"] {background-image: url("${coC}"), url("${okC}") !important;}\n`;
+    let cssCC = `div[style*="${okC}"] {background-image: url("${coC}"), url("${okC}") !important;}`;
     $(`${targetDiv} #${targetField}`).append(cssCC);
   };
   if (okS !== "-") {
-    let cssCS = `div[style*="${okS}"] {background-image: url("${coS}"), url("${okS}") !important;}\n`;
+    let cssCS = `div[style*="${okS}"] {background-image: url("${coS}"), url("${okS}") !important;}`;
     $(`${targetDiv} #${targetField}`).append(cssCS);
   };
   if (okD !== "-") {
-    let cssCD = `div[style*="${okD}"] {background-image: url("${coD}"), url("${okD}") !important;}\n`;
+    let cssCD = `div[style*="${okD}"] {background-image: url("${coD}"), url("${okD}") !important;}`;
     $(`${targetDiv} #${targetField}`).append(cssCD);
   };
 }
+
   if (mer) {
     let cssCode = '';
     if (okC !== "-") {
@@ -84,6 +89,7 @@ if (mer === false) {
     if (!window.watermarkSelectors) {
       window.watermarkSelectors = [];
     }
+
     if (okC !== "-") {
       window.watermarkSelectors.push(`div[style*="${okC}"]::before`);
     }
@@ -93,6 +99,7 @@ if (mer === false) {
     if (okD !== "-") {
       window.watermarkSelectors.push(`div[style*="${okD}"]::before`);
     }
+
     let cssCW = `${window.watermarkSelectors.join(', ')} {content: var(--svgFile) !important;position: absolute;bottom: -27px;left: -9px;transform: scale(44%); }`;
     if (me === 0) { 
       $(`${targetDiv} #${getTargetFieldW(0, un)}`).append(cssCW);
@@ -103,6 +110,7 @@ if (mer === false) {
     window.watermarkSelectors = [];
   }
 }
+
 function getDiv(un) {
   switch (un) {
     case 0:
@@ -115,6 +123,7 @@ function getDiv(un) {
       return '';
   }
 }
+
 function getTargetField(me, un) {
   if (me === 0) {
     return `costumes-${getDivName(un)}`; 
@@ -129,6 +138,7 @@ function getTargetFieldW(me, un) {
     return `costumesWM-${getDivName(un)}`; 
   }
 }
+
 function getDivName(un) {
   switch (un) {
     case 0:
@@ -141,22 +151,27 @@ function getDivName(un) {
       return '';
   }
 }
+
 var inputText = localStorage.getItem("inputText");
 if (inputText) {
   $("#textFromForm").val(inputText);
 }
+
 function processText() {
   var inputText = $("#textFromForm").val();
   var outputText = "";
   var lines = inputText.split("\n");
+
   for (var i = 0; i < lines.length; i++) {
     var line = lines[i].trim();
     line = line.replace(/^\"\s*|\s*\"$/g, "");
     line = line.replace(/""/g, "\"");
     outputText += line + "\n";
   }
+
   localStorage.setItem("inputText", inputText);
   $("#textForJS").val(outputText);
+
   for (var i = 0; i < lines.length; i++) {
     var line = lines[i].trim();
     line = line.replace(/^\"\s*|\s*\"$/g, "");
